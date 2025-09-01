@@ -1,0 +1,27 @@
+dataset_train:
+  augment: true
+  color: RGB
+  crop_type: center
+  patch_size: 128
+  recflag: true
+  root: ../dataset/DIV2K/
+  split: train
+dataset_val:
+  augment: true
+  color: RGB
+  crop_type: center
+  patch_size: 128
+  recflag: true
+  root: ../dataset/DIV2K/
+  split: val
+model:
+  d_model: 64
+  fourier_K: 8
+  mlp_hidden: 128
+  n_heads: 4
+  num_rank_tokens: 4
+  out_ch: 3
+  preserve_color: true
+  residual_clamp: 1.0
+  scale: 4
+  use_luma_canvas: true
