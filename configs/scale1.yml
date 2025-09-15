@@ -1,0 +1,22 @@
+# Scale ×1 (identity / restoration sanity check)
+inherit: configs/common.yml
+
+data:
+  hr_size: 256
+  scale: 1
+
+train:
+  epochs: 600
+  # Note: with scale=1 you should reach near-perfect PSNR (>60 dB) if everything is bug-free
+
+optim:
+  lr: 0.001
+
+model:
+  d_model: 48
+  n_heads: 4            # 48 / 4 = 12
+  mlp_hidden: 96
+  num_rank_tokens: 8
+  fourier_K: 8
+  alpha_init: 0.05
+  alpha_min: 0.02

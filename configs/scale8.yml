@@ -1,0 +1,21 @@
+# Scale ×8
+inherit: configs/common.yml
+
+data:
+  hr_size: 512
+  scale: 8
+
+train:
+  epochs: 3000
+
+optim:
+  lr: 0.0005
+
+model:
+  d_model: 128
+  n_heads: 8            # 128 / 8 = 16
+  mlp_hidden: 256
+  num_rank_tokens: 24
+  fourier_K: 14
+  alpha_init: 0.04
+  alpha_min: 0.02

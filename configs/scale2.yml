@@ -1,0 +1,21 @@
+# Scale ×2 on 256–512px HR
+inherit: configs/common.yml
+
+data:
+  hr_size: 512
+  scale: 2
+
+train:
+  epochs: 1200
+
+optim:
+  lr: 0.001
+
+model:
+  d_model: 64
+  n_heads: 4            # 64 / 4 = 16
+  mlp_hidden: 128
+  num_rank_tokens: 12
+  fourier_K: 10
+  alpha_init: 0.06
+  alpha_min: 0.03

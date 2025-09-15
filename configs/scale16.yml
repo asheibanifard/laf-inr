@@ -1,0 +1,21 @@
+# Scale ×16 (stress test; expect slower convergence)
+inherit: configs/common.yml
+
+data:
+  hr_size: 512
+  scale: 16
+
+train:
+  epochs: 5000
+
+optim:
+  lr: 0.0003
+
+model:
+  d_model: 160
+  n_heads: 8            # 160 / 8 = 20
+  mlp_hidden: 320
+  num_rank_tokens: 32
+  fourier_K: 16
+  alpha_init: 0.03
+  alpha_min: 0.015

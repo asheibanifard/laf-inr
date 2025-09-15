@@ -1,0 +1,35 @@
+# Shared defaults (merged first)
+experiment:
+  save_dir: results_single
+  use_mixed_precision: true
+  viz_every: 200
+  alpha_warmup_epochs: 100
+
+data:
+  image_path: dataset/DIV2K/0001.png
+  hr_size: 512           # you can override per-scale
+  # LR is created as bicubic downsample to hr_size/scale, then bicubic up to hr_size
+
+optim:
+  optimizer: adam
+  lr: 0.001              # overridden per-scale
+  betas: [0.9, 0.99]
+  weight_decay: 0.0
+  scheduler: steplr
+  step_frac: 0.25        # step_size = max(1, int(epochs * step_frac))
+  gamma: 0.5
+  grad_clip: 1.0
+
+loss:
+  lambda_g: 0.0
+  lambda_ent: 0.0
+  lambda_hp: 0.0
+  lambda_ortho: 0.0
+
+model:
+  num_images: 1          # disables ID embedding internally
+  include_input: false   # Fourier PE only (coords)
+  use_grad_stats: true
+  rank_start: 2
+  id_dim: 8              # ignored when num_images=1
+  # no dropout used anywhere
